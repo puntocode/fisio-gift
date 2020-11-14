@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\GiftCardController::class, 'create'])->name('gift.create');
+Route::post('/gift/store', [App\Http\Controllers\GiftCardController::class, 'store'])->name('gift.store');
+
+Auth::routes();
+
