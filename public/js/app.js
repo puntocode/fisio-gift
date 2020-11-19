@@ -1920,8 +1920,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1931,13 +1929,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     sumar: function sumar() {
-      //alert(this.monto);
-      this.total = this.total + 50;
-      this.error = '';
+      if (this.total == 0) {
+        this.total = this.total + 200;
+      } else {
+        this.total = this.total + 50;
+      }
     },
     restar: function restar() {
       if (this.total <= 200) {
-        this.error = "Error: el monto minimo debe ser 200mil";
+        this.total = 0;
       } else {
         this.total = this.total - 50;
       }
@@ -6387,7 +6387,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.caja{\n    background-color: #fff;\n    border: 1px solid #ced4da;\n    border-radius: 0.25rem;\n    padding: 5px;\n    width: 110px;\n}\n\n", ""]);
+exports.push([module.i, "\n.caja{\n    background-color: #fff;\n    border: 1px solid #ced4da;\n    border-radius: 0.25rem;\n    padding: 5px;\n    width: 110px;\n}\n", ""]);
 
 // exports
 

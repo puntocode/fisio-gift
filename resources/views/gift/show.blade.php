@@ -33,7 +33,11 @@
                     <div class="plastico bg-white p-3 shadow-lg mx-3 my-4">
                         <span id="numero" class="text-primary">{{ $giftCard->id }}</span>
                         <div class="text-center my-4"><img src="{{ asset('/img/logo-fisiostetik.svg') }}" alt="" width="200"></div>
-                        <h5 class="text-right">{{ $giftCard->monto }}mil</h5>
+                        @if($giftCard->monto > 0 && $giftCard->monto < 1000)
+                            <h5 class="text-right">{{ $giftCard->monto }}mil</h5>
+                        @elseif($giftCard->monto >= 1000)
+                            <h5 class="text-right">{{ $giftCard->monto/1000 }}M</h5>
+                        @endif
                     </div>
 
                     <div class="bg-secondary mt-5 bg-grad" style="height: 15px;"></div>
