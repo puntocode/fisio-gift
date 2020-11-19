@@ -1,5 +1,27 @@
-.btn-grad {
+.bg-grad {
     background-image: linear-gradient(to right, #DA22FF 0%, #9733EE 51%, #DA22FF 100%);
     transition: background-position .5s;
     color: #fff !important;
+}
+
+.plastico {
+    border-radius: 15px;
+}
+
+.svg-white {
+    filter: invert(1);
+}
+
+.body {
+    position: relative;
+    .detalle {
+        width: 90px;
+        height: 90px;
+        border-radius: 50px;
+        background-image: linear-gradient(to right, #DA22FF 50%, #9733EE 100%);
+        position: absolute;
+        right: 0;
+        top: -42px;
+        padding: 17px;
+    }
 }

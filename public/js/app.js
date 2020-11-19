@@ -1916,16 +1916,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['monto'],
   data: function data() {
     return {
-      monto: this.monto
+      total: 200,
+      error: ''
     };
   },
   methods: {
     sumar: function sumar() {
-      alert(this.monto);
+      //alert(this.monto);
+      this.total = this.total + 50;
+      this.error = '';
+    },
+    restar: function restar() {
+      if (this.total <= 200) {
+        this.error = "Error: el monto minimo debe ser 200mil";
+      } else {
+        this.total = this.total - 50;
+      }
     }
   }
 });
@@ -38167,19 +38182,31 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "caja d-flex" }, [
-    _c("img", {
-      staticClass: "pr-3",
-      attrs: { id: "mas", src: "img/mas.svg", alt: "", height: "20" },
-      on: { click: _vm.sumar }
+  return _c("div", [
+    _c("div", { staticClass: "caja d-flex" }, [
+      _c("img", {
+        staticClass: "pr-3",
+        attrs: { id: "mas", src: "/img/mas.svg", alt: "", height: "20" },
+        on: { click: _vm.sumar }
+      }),
+      _vm._v(" "),
+      _c("span", { attrs: { id: "total" } }, [_vm._v(_vm._s(_vm.total))]),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "pl-3",
+        attrs: { id: "menos", src: "/img/menos.svg", alt: "", height: "20" },
+        on: { click: _vm.restar }
+      })
+    ]),
+    _vm._v(" "),
+    _c("input", {
+      attrs: { type: "hidden", id: "monto", name: "monto" },
+      domProps: { value: this.total }
     }),
     _vm._v(" "),
-    _c("span", { attrs: { id: "total" } }, [_vm._v("200")]),
-    _vm._v(" "),
-    _c("img", {
-      staticClass: "pl-3",
-      attrs: { id: "menos", src: "img/menos.svg", alt: "", height: "20" }
-    })
+    _c("span", { staticClass: "text-danger" }, [
+      _c("strong", [_vm._v(_vm._s(_vm.error))])
+    ])
   ])
 }
 var staticRenderFns = []

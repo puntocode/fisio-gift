@@ -9,5 +9,5 @@ class GiftCard extends Model
 {
     use HasFactory;
 
-    protected $fillable = [ 'nombre', 'detalle', 'monto', 'receptor' ];
+    protected $fillable = [ 'nombre', 'detalle', 'monto', 'receptor', 'mensaje' ];
 }

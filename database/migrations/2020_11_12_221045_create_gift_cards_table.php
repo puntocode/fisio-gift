@@ -21,6 +21,7 @@ class CreateGiftCardsTable extends Migration
             $table->string('datos_receptor')->nullable();
             $table->integer('monto');
             $table->string('detalle');
+            $table->string('mensaje')->nullable();
             $table->string('estado')->default(0);
             $table->timestamps();
         });

@@ -39,14 +39,15 @@ class GiftCardController extends Controller
             'nombre' => 'required|min:4',
             'receptor' => 'required|min:4',
             'monto' => 'required|numeric',
-            'detalle' => 'required'
+            'detalle' => 'required',
+            'mensaje' => ''
         ]);
-        //dd($data);
 
         $giftCard = new GiftCard($data);
         $giftCard->save();
 
-        return redirect()->back();
+        $lastId = $giftCard->id;
+        return redirect()->route('gift.show', ['giftCard' => $lastId]);
     }
 
     /**
@@ -57,7 +58,7 @@ class GiftCardController extends Controller
      */
     public function show(GiftCard $giftCard)
     {
-        //
+        return view('gift.show', compact('giftCard'));
     }
 
     /**
